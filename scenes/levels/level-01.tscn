@@ -1,31 +1,78 @@
 [gd_scene format=4 uid="uid://cuqr6mknaidr4"]
 
+[ext_resource type="Texture2D" uid="uid://c1lsyl6hdwcwc" path="res://assets/art/backgrounds-spritesheet.png" id="1_43mrd"]
+[ext_resource type="Texture2D" uid="uid://uume5mhmdr3q" path="res://assets/art/tiles-spritesheet.png" id="3_1j0ho"]
 [ext_resource type="PackedScene" uid="uid://mtb3m6j6ilk1" path="res://scenes/player/player.tscn" id="3_w44ue"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w44ue"]
+texture = ExtResource("1_43mrd")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1j0ho"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_w44ue")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_701hk"]
 size = Vector2(168, 48)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0wqo"]
+texture = ExtResource("3_1j0ho")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(64, 64)
+1:10/0 = 0
+1:10/0/terrain_set = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h6en2"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Grass"
+terrain_set_0/terrain_0/color = Color(0.71268106, 0, 0.30961502, 1)
+sources/0 = SubResource("TileSetAtlasSource_l0wqo")
+
 [node name="Level01" type="Node2D" unique_id=1900646980]
 
-[node name="Background" type="TileMapLayer" parent="." unique_id=268141037]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAABAAEAAAABAAEAAAACAAEAAAACAAEAAAADAAEAAAADAAEAAAAEAAEAAAACAAEAAAAAAAIAAAABAAMAAAABAAIAAAABAAMAAAACAAIAAAABAAMAAAADAAIAAAABAAMAAAAEAAIAAAABAAMAAAA=")
+[node name="Background" type="TileMapLayer" parent="." unique_id=356466952]
+tile_map_data = PackedByteArray("AAD+////AAABAAMAAAD/////AAABAAMAAAAAAP//AAABAAMAAAAAAP7/AAABAAMAAAABAP7/AAABAAMAAAACAP7/AAABAAMAAAD+//7/AAABAAMAAAD///7/AAABAAMAAAADAP7/AAABAAMAAAAEAP7/AAABAAMAAAAEAP//AAABAAMAAAAFAP//AAABAAMAAAAFAP7/AAABAAMAAAADAP//AAABAAMAAAACAP//AAABAAMAAAABAP//AAABAAMAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAD+/wEAAAABAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAABAAEAAAABAAIAAAACAAEAAAABAAIAAAADAAEAAAABAAIAAAAEAAEAAAABAAIAAAAFAAEAAAABAAIAAAD+/wIAAAACAAEAAAD//wIAAAADAAEAAAAAAAIAAAADAAEAAAABAAIAAAAAAAIAAAACAAIAAAADAAEAAAADAAIAAAADAAEAAAAEAAIAAAADAAEAAAAFAAIAAAADAAEAAAD+/wMAAAABAAMAAAD//wMAAAABAAMAAAAAAAMAAAABAAMAAAABAAMAAAABAAMAAAACAAMAAAABAAMAAAADAAMAAAABAAMAAAAEAAMAAAABAAMAAAAFAAMAAAABAAMAAAA=")
+tile_set = SubResource("TileSet_1j0ho")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1386412714]
 position = Vector2(560, 336)
 
 [node name="Player" parent="PlayerSpawn" unique_id=1207979450 instance=ExtResource("3_w44ue")]
 
-[node name="Platforms" type="TileMapLayer" parent="." unique_id=1307873346]
-tile_map_data = PackedByteArray("AAAAAAkAAAACAAoAAAABAAkAAAACAAoAAAD//wkAAAABAAoAAAACAAkAAAACAAoAAAADAAkAAAACAAoAAAAEAAkAAAACAAoAAAAFAAkAAAACAAoAAAAGAAkAAAACAAoAAAAHAAkAAAACAAoAAAAIAAkAAAACAAoAAAAJAAkAAAACAAoAAAAKAAkAAAACAAoAAAALAAkAAAACAAoAAAAMAAkAAAACAAoAAAANAAkAAAACAAoAAAAOAAkAAAACAAoAAAAPAAkAAAACAAoAAAAQAAkAAAACAAoAAAARAAkAAAACAAoAAAASAAkAAAAFAAoAAAA=")
-
 [node name="Platform1" type="ColorRect" parent="." unique_id=1714381772]
 offset_left = 472.0
 offset_top = 448.0
 offset_right = 640.0
 offset_bottom = 496.0
+color = Color(0.093160845, 0.093160845, 0.09316083, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platform1" unique_id=242905831]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/StaticBody2D" unique_id=1349817192]
 position = Vector2(84, 24)
 shape = SubResource("RectangleShape2D_701hk")
+
+[node name="Platforms" type="TileMapLayer" parent="." unique_id=255051574]
+tile_set = SubResource("TileSet_h6en2")
