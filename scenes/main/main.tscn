@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cuqr6mknaidr4" path="res://scenes/levels/level-01.tscn" id="2_l3cfh"]
 
 [node name="Main" type="Node2D" unique_id=22872528]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_iuonh")
 
 [node name="LevelHolder" type="Node2D" parent="." unique_id=674304246]
